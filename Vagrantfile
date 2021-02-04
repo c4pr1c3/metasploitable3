@@ -20,6 +20,12 @@ Vagrant.configure("2") do |config|
   config.vm.define "win2k8" do |win2k8|
     # Base configuration for the VM and provisioner
     win2k8.vm.box = "rapid7/metasploitable3-win2k8"
+    # 访问 https://app.vagrantup.com/rapid7/boxes/metasploitable3-win2k8 获取到 virtualbox 镜像的下载 url
+    # https://app.vagrantup.com/rapid7/boxes/metasploitable3-win2k8/versions/0.1.0-weekly/providers/virtualbox.box
+    # 使用浏览器访问后获得「动态生成的」真实下载地址
+    # 真实下载地址放到下载工具加速下载
+    # 重命名下载完成的文件名为 win2k8.box
+    win2k8.vm.box_url = "win2k8.box"
     win2k8.vm.hostname = "metasploitable3-win2k8"
     win2k8.vm.communicator = "winrm"
     win2k8.winrm.retry_limit = 60
